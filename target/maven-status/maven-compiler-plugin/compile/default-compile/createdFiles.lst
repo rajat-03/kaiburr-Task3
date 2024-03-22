@@ -1,0 +1,7 @@
+com\Kaiburr\assignment\controller\ServerController.class
+com\Kaiburr\assignment\service\ServerServiceImpl.class
+com\Kaiburr\assignment\controller\WelcomeController.class
+com\Kaiburr\assignment\repository\ServersRepository.class
+com\Kaiburr\assignment\service\ServerService.class
+com\Kaiburr\assignment\entity\Servers.class
+com\Kaiburr\assignment\AssignmentApplication.class

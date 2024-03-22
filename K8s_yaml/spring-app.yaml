@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+  labels:
+    app: spring
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring
+  template:
+    metadata:
+      labels:
+        app: spring
+    spec:
+      containers:
+        - name: spring
+          image: arakanfudo/spring-assignment
+          ports:
+            - containerPort: 8081
+          env:
+            - name: DB_HOST
+              value: mongo-service
+            - name: DB_PORT
+              value: "27017"
+            - name: DB_NAME
+              value: KaiburrAssignment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-svc
+spec:
+  selector:
+    app: spring
+  ports:
+    - protocol: "TCP"
+      port: 8081 # The port that the service is running on in the cluster
+      targetPort: 8081 # The port exposed by the service
+  type: NodePort # type of the service.
